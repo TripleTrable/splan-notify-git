@@ -2,7 +2,7 @@
 pkgname=splan-notify-git
 _name="${pkgname%-git}"
 pkgver() { git -C "$_name" describe --tags | sed 's/^v//;s/-/.r/;s/-/./g'; }
-pkgver=1.0
+pkgver=1.0.r1.g1c6718f
 pkgrel=1
 
 pkgdesc="Easily get Notifications from the StarPlaner timetables"
@@ -22,5 +22,5 @@ build() {
 package() {
 	cd "$_name"
 	make PREFIX="/usr" DESTDIR="$pkgdir" install
-    install -Dm644 LICENSE "$pgkdir/usr/share/licenses/$pkgname/LICENSE"
+    install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
 }
